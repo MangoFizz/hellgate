@@ -8,10 +8,23 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(balltze-lib/balltze.cmake)
 
-add_subdirectory(puredoom/)
+file(GLOB PURE_DOOM_SRC puredoom/src/DOOM/*.*)
+include_directories(puredoom/src/)
+
+add_definitions(
+    -DDOOM_IMPLEMENT_PRINT
+    -DDOOM_IMPLEMENT_MALLOC
+    -DDOOM_IMPLEMENT_FILE_IO
+    -DDOOM_IMPLEMENT_SOCKETS
+    -DDOOM_IMPLEMENT_GETTIME
+    -DDOOM_IMPLEMENT_EXIT
+    -DDOOM_IMPLEMENT_GETENV
+)
 
 add_library(${PROJECT_NAME} MODULE
+    src/hellgate.cpp
     src/main.cpp
+    ${PURE_DOOM_SRC}
 )
 
 target_link_libraries(${PROJECT_NAME} balltze)

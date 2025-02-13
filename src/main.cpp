@@ -1,9 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
-#include <balltze/logger.hpp>
 #include <balltze/plugin.hpp>
 
-Balltze::Logger logger("Hellgate");
+void hellgate_initialize();
 
 BALLTZE_PLUGIN_API Balltze::PluginMetadata plugin_metadata() {
     return {
@@ -17,7 +16,7 @@ BALLTZE_PLUGIN_API Balltze::PluginMetadata plugin_metadata() {
 }
 
 BALLTZE_PLUGIN_API bool plugin_load() noexcept {
-    logger.info("Loaded!");
+    hellgate_initialize();
     return true;
 }
 
