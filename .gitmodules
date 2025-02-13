@@ -1,3 +1,6 @@
 [submodule "balltze-lib"]
 	path = balltze-lib
 	url = https://github.com/MangoFizz/balltze-lib
+[submodule "PureDoom"]
+	path = puredoom
+	url = https://github.com/Daivuk/PureDOOM
